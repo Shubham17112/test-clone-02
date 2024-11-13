@@ -1,0 +1,39 @@
+{% load static tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Django Tailwind</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% tailwind_css %}
+</head>
+   
+</head>
+<body >
+    <!-- Navbar -->
+   
+        {% include 'navbar.html' %}
+
+       
+    
+    
+    <!-- Main Content -->
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+     <!-- Events -->
+    
+    <!-- Email_subscription -->
+    {% include 'email_subscription.html' %}
+    <!-- Footer -->
+    {% include 'fotter.html' %}
+
+    <!-- JavaScript Files -->
+    {% comment %} <script src="{% static 'js/script.js' %}"></script> {% endcomment %}
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

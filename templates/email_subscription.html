@@ -1,0 +1,149 @@
+{% load static %}
+
+    <style>
+        :root {
+            --primary-yellow: #ffff00;
+            --primary-blue: #0033ff;
+            --text-dark: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .newsletter-section {
+            background-color: var(--primary-yellow);
+            padding: 4rem 2rem;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .content {
+            max-width: 500px;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .description {
+            font-size: 1.125rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            color: rgba(0, 0, 0, 0.8);
+        }
+
+        .signup-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 450px;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 0.75rem 1.25rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .signup-button {
+            padding: 0.75rem 2rem;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .signup-button:hover {
+            background-color: #0026cc;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .content {
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .signup-form {
+                flex-direction: column;
+                margin: 0 auto;
+            }
+
+            .title {
+                font-size: 2rem;
+            }
+
+            .newsletter-section {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="content">
+                <h2 class="title">Moments Chosen & Made For You</h2>
+                <p class="description">
+                    Want the latest event recommendations straight to your inbox? We've got you. Sign up for these, as well as tips and training hacks.
+                </p>
+                <form class="signup-form" action="/subscribe" method="POST">
+                    <input 
+                        type="email" 
+                        class="email-input" 
+                        placeholder="Enter email address" 
+                        required 
+                        aria-label="Email address"
+                    >
+                    <button type="submit" class="signup-button">Sign Up</button>
+                </form>
+            </div>
+            <div class="image-container">
+                <img 
+                    src="{% static 'runner.jpg' %}" alt="Athletes at a sporting event" 
+                    width="600" 
+                    height="400"
+                >
+            </div>
+        </div>
+    </section>
